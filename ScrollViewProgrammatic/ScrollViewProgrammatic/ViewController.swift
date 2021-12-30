@@ -198,7 +198,7 @@ class ViewController: UIViewController {
         contentView.addSubview(gmailLoginButton)
         contentView.addSubview(scrollTextField)
         
-        scrollView.backgroundColor = UIColor.green
+        scrollView.backgroundColor = UIColor.systemBackground
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
@@ -207,7 +207,6 @@ class ViewController: UIViewController {
             
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //            scrollView.heightAnchor.constraint(equalToConstant: 1000),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 25),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
@@ -283,7 +282,7 @@ class ViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @objc func didTapLoginButton() {
-            print("login successful")
+        print("login successful")
     }
     @objc func updateEmailValidationViews(_ textField: UITextField) {
     }
