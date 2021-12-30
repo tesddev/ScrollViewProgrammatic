@@ -54,67 +54,111 @@ class ViewController: UIViewController {
         textField.addTarget(self, action: #selector(updateEmailValidationViews), for: .editingChanged)
         return textField
     }()
-//    let passwordTextField: PasswordTextField = {
-//        let textField = PasswordTextField()
-//        textField.placeholder = Constants.LoginVCStrings.password
-//        textField.addTarget(self, action: #selector(passwordValidationViews), for: .editingChanged)
-//        return textField
-//    }()
-//    let forgotPasswordButton: UIButton = {
-//        let label = UIButton()
-//        label.backgroundColor = .systemBackground
-//        label.setImage(Constants.Images.forgotPassword, for: .normal)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//    var loginButton: GreenButton = {
-//        let button = GreenButton()
-//        button.setTitle(Constants.LoginVCStrings.login, for: .normal)
-//        button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-//        return button
-//    }()
-//    let dontHaveAccLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 14)
-//        label.textColor = .systemGray
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.addTrailing(image: Constants.Images.create ?? UIImage(), text: Constants.LoginVCStrings.dontHave, space: Constants.LoginVCStrings.singleSpace)
-//        return label
-//    }()
-//    let myFirstView: LineView = {
-//        let view = LineView()
-//        return view
-//    }()
-//    let mySecondView: LineView = {
-//        let view = LineView()
-//        return view
-//    }()
-//    let orLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = Constants.LoginVCStrings.or
-//        label.font = UIFont.systemFont(ofSize: 16)
-//        label.textColor = .systemGray
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//    var appleLoginButton: GoogleAndAppleButton = {
-//        let button = GoogleAndAppleButton()
-//        button.setImage(Constants.Images.appleSignInImage, for: .normal)
-//        return button
-//    }()
-//    var gmailLoginButton: GoogleAndAppleButton = {
-//        let button = GoogleAndAppleButton()
-//        button.setImage(Constants.Images.googleSignIn, for: .normal)
-//        return button
-//    }()
-//    let scrollTextField: PasswordTextField = {
-//        let textField = PasswordTextField()
-//        textField.placeholder = Constants.LoginVCStrings.password
-//        textField.tintColor = .black
-//        textField.placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis lacus in nisi vulputate vulputate. Maecenas ultricies dolor at ante placerat suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac"
-//        textField.addTarget(self, action: #selector(passwordValidationViews), for: .editingChanged)
-//        return textField
-//    }()
+    let passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Password"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
+        textField.leftViewMode = .always
+        textField.font = UIFont(name: "NunitoSans-SemiBold", size: 15)
+        textField.textAlignment = .left
+        textField.layer.cornerRadius = 10.0
+        textField.layer.borderWidth = 1.0
+        textField.backgroundColor = .systemGray6
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.layer.borderColor = UIColor.systemBackground.cgColor
+        textField.addTarget(self, action: #selector(passwordValidationViews), for: .editingChanged)
+        return textField
+    }()
+    let forgotPasswordButton: UIButton = {
+        let label = UIButton()
+        label.backgroundColor = .systemBackground
+        label.setTitle("Forgot password?", for: .normal)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    var loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Login", for: .normal)
+        button.layer.borderWidth = 0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        button.layer.cornerRadius = 10
+        button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        button.layer.borderWidth = 1
+        button.backgroundColor = UIColor.systemGreen
+        button.layer.borderColor = UIColor.systemGreen.cgColor
+        button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        return button
+    }()
+    let dontHaveAccLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .systemGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Don't have an account?"
+        return label
+    }()
+    let myFirstView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let mySecondView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let orLabel: UILabel = {
+        let label = UILabel()
+        label.text = "or"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .systemGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    var appleLoginButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderWidth = 0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 5
+        button.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        button.setImage(UIImage(systemName: "search"), for: .normal)
+        return button
+    }()
+    var gmailLoginButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderWidth = 0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 5
+        button.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        button.setImage(UIImage(systemName: "search"), for: .normal)
+        return button
+    }()
+    let scrollTextField: UITextField = {
+        let textField = UITextField()
+        textField.tintColor = .black
+        textField.placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis lacus in nisi vulputate vulputate. Maecenas ultricies dolor at ante placerat suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
+        textField.leftViewMode = .always
+        textField.font = UIFont(name: "NunitoSans-SemiBold", size: 15)
+        textField.textAlignment = .left
+        textField.layer.cornerRadius = 10.0
+        textField.layer.borderWidth = 1.0
+        textField.backgroundColor = .systemGray6
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.layer.borderColor = UIColor.systemBackground.cgColor
+        textField.addTarget(self, action: #selector(passwordValidationViews), for: .editingChanged)
+        return textField
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
