@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
-    // MARK: EXPLORE IMAGE ICON
     var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "arrowBack"), for: .normal)
@@ -128,7 +127,7 @@ class ViewController: UIViewController {
         button.clipsToBounds = true
         button.layer.cornerRadius = 5
         button.heightAnchor.constraint(equalToConstant: 54).isActive = true
-        button.setImage(UIImage(systemName: "search"), for: .normal)
+        button.setImage(UIImage(named: "arrowBack"), for: .normal)
         return button
     }()
     var gmailLoginButton: UIButton = {
@@ -138,7 +137,7 @@ class ViewController: UIViewController {
         button.clipsToBounds = true
         button.layer.cornerRadius = 5
         button.heightAnchor.constraint(equalToConstant: 54).isActive = true
-        button.setImage(UIImage(systemName: "search"), for: .normal)
+        button.setImage(UIImage(named: "arrowBack"), for: .normal)
         return button
     }()
     let scrollTextField: UITextField = {
@@ -173,11 +172,11 @@ class ViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y = -216 // Move view 150 points upward
+        self.view.frame.origin.y = -216 // Moves view 150 points upward
     }
     
     @objc func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y = 0 // Move view to original position
+        self.view.frame.origin.y = 0 // Moves view to original position
     }
     
     func constraintViews() {
